@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователь</title>
+</head>
+<body>
+
+<h2>Информация о пользователе</h2>
+
+<div th:object="${user}">
+    <p>ID: <span th:text="${user.getId()}"></span></p>
+    <p>Имя: <span th:text="${user.firstName}"></span></p>
+    <p>Фамилия: <span th:text="${user.lastName}"></span></p>
+    <p>Возраст: <span th:text="${user.age}"></span></p>
+</div>
+
+<a th:href="@{/users/{id}/edit(id=${user.id})}" class="btn btn-warning">Редактировать</a>
+<a th:href="@{/users/{id}/delete(id=${user.id})}" class="btn btn-danger">Удалить</a>
+<hr>
+<a th:href="@{/users}" class="btn btn-primary">Вернуться к списку пользователей</a>
+
+</body>
+</html>
